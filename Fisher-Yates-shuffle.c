@@ -39,12 +39,7 @@ void shuffle(node_t **head) {
     node_t **indirect = tmp_head;
 
     for(; Roll!=1 ; Roll--, indirect=&(*indirect)->next) ;
-/*
-    while (Roll != 1) {
-      indirect = &(*indirect)->next;
-      Roll--;
-    }
-*/
+
     int tmp_value = (*tmp_head)->value;
     (*tmp_head)->value = (*indirect)->value;
     (*indirect)->value = tmp_value;
@@ -57,12 +52,10 @@ void shuffle(node_t **head) {
 
 void print_list(node_t *head)
 {
-    while(head)
-    {
-        printf("%d ",head->value) ;
-        head = head->next ;
-    }
-    printf("\n") ;
+  for (; head; head = head->next)
+    printf("%d ", head->value);
+
+  printf("\n");
 }
 
 int main()
